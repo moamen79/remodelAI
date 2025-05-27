@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent endless scrolling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* New animated layered background with color shift */
+@media (min-width: 400px) {
+  .background-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #fbc2eb 0deg,
+      #a6c1ee 90deg,
+      #fbc2eb 180deg,
+      #a6c1ee 270deg,
+      #fbc2eb 360deg
+    );
+    opacity: 0.4;
+    animation: spinBg 30s linear infinite;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.8), transparent 70%);
+  }
+}
+
+/* Fun heading style */
+h1, h2, h3 {
+  font-family: 'Comic Neue', cursive;
+  font-weight: 700;
+  color: rgba(68, 116, 179, 0.904);
+}
